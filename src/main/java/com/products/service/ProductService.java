@@ -74,7 +74,8 @@ public class ProductService {
     product.setDiscount(getDiscountedPrice(product.getBasePrice(), priceByCategory.getDiscount()));
 
     //
-    product.setFinalPrice(product.getDiscount() + priceByCategory.getDeliveryCharge());
+    product.setFinalPrice(product.getBasePrice() - product.getDiscount()
+        + priceByCategory.getDeliveryCharge() + product.getCharges().getGst());
 
   }
 
