@@ -11,7 +11,8 @@ public class LoadDatabase {
   private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
   @Bean
-  CommandLineRunner initDatabase(ProductRepository repository, PriceByCategoryRepository pricerepository) {
+  CommandLineRunner initDatabase(ProductRepository repository,
+      PriceByCategoryRepository pricerepository) {
 
     return args -> {
       log.info("Preloading "
@@ -25,16 +26,16 @@ public class LoadDatabase {
       log.info("Preloading "
           + repository.save(new Product("Neelkamal Been Bag", "Sofa Set", "Furniture", 350.00)));
       log.info("Preloading "
-          + pricerepository.save(new PriceByCategory("Electronics",350.00,0.15,0.18)));
+          + pricerepository.save(new PriceByCategory("Electronics", 350.00, 15.00, 18.00)));
       log.info("Preloading "
-          + pricerepository.save(new PriceByCategory("Home Appliances",800.00,0.22,0.24)));
+          + pricerepository.save(new PriceByCategory("Home Appliances", 800.00, 22.00, 24.00)));
+      log.info(
+          "Preloading " + pricerepository.save(new PriceByCategory("Clothing", 0.0, 40.00, 12.00)));
       log.info("Preloading "
-          + pricerepository.save(new PriceByCategory("Clothing", 0.0,0.40,0.12)));
-      log.info("Preloading "
-          + pricerepository.save(new PriceByCategory("Furniture",300.00,0.10,0.18)));
-          
+          + pricerepository.save(new PriceByCategory("Furniture", 300.00, 10.00, 18.00)));
+
     };
   }
-   
+
 
 }

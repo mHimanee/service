@@ -32,15 +32,19 @@ public class ProductService {
   }
 
   public Product saveProduct(Product newProduct) {
-    return repository.save(newProduct);
+    Product mproduct = repository.save(newProduct);
+    populateChargesAndPricesForProduct(mproduct);
+    return mproduct;
   }
 
   public Product editProduct(Product newProduct, Long id) {
     Optional<Product> product = repository.findById(id);
     if (product.isPresent()) {
       // set values
-      return repository.save(new Product(id, newProduct.getProductName(),
+      Product mproduct = repository.save(new Product(id, newProduct.getProductName(),
           newProduct.getProductType(), newProduct.getProductCategory(), newProduct.getBasePrice()));
+      populateChargesAndPricesForProduct(mproduct);
+      return mproduct;
     } else {
       throw new ProductNotFoundException(id);
     }
@@ -53,11 +57,11 @@ public class ProductService {
 
 
   private Double getDiscountedPrice(Double basePrice, Double discount) {
-    return (discount / 100) * basePrice;
+    return (discount / 100.00) * basePrice;
   }
 
   private Double getGST(Double basePrice, Double gst) {
-    return (gst / 100) * basePrice;
+    return (gst / 100.00) * basePrice;
   }
 
   private void populateChargesAndPricesForProduct(Product product) {
@@ -65,7 +69,7 @@ public class ProductService {
     Charges charges = new Charges();
     String category = product.getProductCategory();
     PriceByCategory priceByCategory = pricerepository.getReferenceById(category);
-    Double gst = getGST(product.getBasePrice(), priceByCategory.getDiscount());
+    Double gst = getGST(product.getBasePrice(), priceByCategory.getGST());
     charges.setGst(gst);
     charges.setDelivery(priceByCategory.getDeliveryCharge());
     product.setCharges(charges);
@@ -73,7 +77,7 @@ public class ProductService {
     // setting Discount price
     product.setDiscount(getDiscountedPrice(product.getBasePrice(), priceByCategory.getDiscount()));
 
-    //
+    // final Price
     product.setFinalPrice(product.getBasePrice() - product.getDiscount()
         + priceByCategory.getDeliveryCharge() + product.getCharges().getGst());
 
