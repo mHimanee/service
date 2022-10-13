@@ -2,7 +2,6 @@ package com.products.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductController {
   private final ProductRepository repository;
-
+  
   ProductController(ProductRepository repository) {
     this.repository = repository;
   }
@@ -43,7 +42,7 @@ public class ProductController {
       // set values
       return repository
           .save(new Product(id, newProduct.getProductName(), newProduct.getProductType(),
-              newProduct.getProductCategory(), newProduct.getProductPrice()));
+              newProduct.getProductCategory(), newProduct.getBasePrice()));
     } else {
       throw new ProductNotFoundException(id);
     }

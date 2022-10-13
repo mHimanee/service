@@ -19,26 +19,29 @@ public class Product {
   private String productName;
   private String productType;
   private String productCategory;
-  private Double productPrice;
+  private Double basePrice;
+  private Double discount;
+  private Charges charges;
+  private Double finalPrice;
+
 
   public Product() {}
 
-  public Product(String productName, String productType, String productCategory,
-      Double productPrice) {
+  public Product(String productName, String productType, String productCategory, Double basePrice) {
     this.productName = productName;
     this.productType = productType;
     this.productCategory = productCategory;
-    this.productPrice = productPrice;
+    this.basePrice = basePrice;
   }
 
   public Product(Long productID, String productName, String productType, String productCategory,
-      Double productPrice) {
+      Double basePrice) {
     super();
     this.productID = productID;
     this.productName = productName;
     this.productType = productType;
     this.productCategory = productCategory;
-    this.productPrice = productPrice;
+    this.basePrice = basePrice;
   }
 
   public Long getProductID() {
@@ -73,24 +76,48 @@ public class Product {
     this.productCategory = productCategory;
   }
 
-  public Double getProductPrice() {
-    return productPrice;
+  public Double getBasePrice() {
+    return basePrice;
   }
 
-  public void setProductPrice(Double productPrice) {
-    this.productPrice = productPrice;
+  public void setBasePrice(Double basePrice) {
+    this.basePrice = basePrice;
+  }
+
+  public Double getDiscount() {
+    return discount;
+  }
+
+  public void setDiscount(Double discount) {
+    this.discount = discount;
+  }
+
+  public Charges getCharges() {
+    return charges;
+  }
+
+  public void setCharges(Charges charges) {
+    this.charges = charges;
+  }
+
+  public Double getFinalPrice() {
+    return finalPrice;
+  }
+
+  public void setFinalPrice(Double finalPrice) {
+    this.finalPrice = finalPrice;
   }
 
   @Override
   public String toString() {
     return "Product [productID=" + productID + ", productName=" + productName + ", productType="
-        + productType + ", productCategory=" + productCategory + ", productPrice=" + productPrice
+        + productType + ", productCategory=" + productCategory + ", productPrice=" + basePrice
         + "]";
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(productCategory, productID, productName, productPrice, productType);
+    return Objects.hash(productCategory, productID, productName, basePrice, productType);
   }
 
   @Override
@@ -105,7 +132,7 @@ public class Product {
     return Objects.equals(productCategory, other.productCategory)
         && Objects.equals(productID, other.productID)
         && Objects.equals(productName, other.productName)
-        && Objects.equals(productPrice, other.productPrice)
+        && Objects.equals(basePrice, other.basePrice)
         && Objects.equals(productType, other.productType);
   }
 
