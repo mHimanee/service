@@ -8,6 +8,7 @@ import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /**
  * @author Himanee
@@ -20,8 +21,11 @@ public class Product {
   private String productType;
   private String productCategory;
   private Double basePrice;
+  @Transient
   private Double discount;
+  @Transient
   private Charges charges;
+  @Transient
   private Double finalPrice;
 
 

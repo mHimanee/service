@@ -1,7 +1,9 @@
 package com.products.service;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface PriceByCategoryRepository extends JpaRepository<PriceByCategory, Long> {
+@Repository
+public interface PriceByCategoryRepository extends JpaRepository<PriceByCategory, String> {
 
 }

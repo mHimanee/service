@@ -5,10 +5,12 @@ import java.util.Objects;
 public class Charges {
   private Double gst;
   private Double delivery;
-
+  
+ 
   public Charges(Double gst, Double delivery) {
     this.gst = gst;
     this.delivery = delivery;
+    
   }
 
   public Charges() {}
