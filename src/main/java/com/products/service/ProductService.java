@@ -56,15 +56,15 @@ public class ProductService {
   }
 
 
-  private Double getDiscountedPrice(Double basePrice, Double discount) {
+  public Double getDiscountedPrice(Double basePrice, Double discount) {
     return (discount / 100.00) * basePrice;
   }
 
-  private Double getGST(Double basePrice, Double gst) {
+  public Double getGST(Double basePrice, Double gst) {
     return (gst / 100.00) * basePrice;
   }
 
-  private void populateChargesAndPricesForProduct(Product product) {
+  public void populateChargesAndPricesForProduct(Product product) {
     // Setting Data for Charges
     Charges charges = new Charges();
     String category = product.getProductCategory();
@@ -83,7 +83,7 @@ public class ProductService {
 
   }
 
-  private void populateChargesAndPricesForProducts(List<Product> productList) {
+  public void populateChargesAndPricesForProducts(List<Product> productList) {
     for (Product product : productList) {
       populateChargesAndPricesForProduct(product);
     }
