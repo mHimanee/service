@@ -1,4 +1,4 @@
-package com.products.service;
+package com.products.service.controller;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import com.products.service.ProductService;
+import com.products.service.models.Product;
+import com.products.service.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.products.service;
+package com.products.service.models;
 
 import java.util.Objects;
 

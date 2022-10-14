@@ -5,6 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import com.products.service.models.PriceByCategory;
+import com.products.service.models.Product;
+import com.products.service.repository.PriceByCategoryRepository;
+import com.products.service.repository.ProductRepository;
 
 @Configuration
 public class LoadDatabase {

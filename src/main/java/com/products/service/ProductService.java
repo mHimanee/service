@@ -4,6 +4,11 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.products.service.models.Charges;
+import com.products.service.models.PriceByCategory;
+import com.products.service.models.Product;
+import com.products.service.repository.PriceByCategoryRepository;
+import com.products.service.repository.ProductRepository;
 
 @Service
 public class ProductService {
