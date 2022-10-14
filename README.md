@@ -5,7 +5,7 @@ Made with:-
   * Spring Boot 
   * Java 8
   * H2
-  * Hibernate
+  * Spring Data JPA
 #### Run:
   * In the Root folder(Service) execute Command in cmd :-> mvnw.cmd clean spring-boot:run
 
