@@ -7,7 +7,7 @@ Made with:-
   * H2
   * Hibernate
 #### Run:
-  * In the Root folder(Service) run: mvnw.cmd clean spring-boot:run
+  * In the Root folder(Service) execute Command in cmd :-> mvnw.cmd clean spring-boot:run
 
 ###### Product Entity:
         {
